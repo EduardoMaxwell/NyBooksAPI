@@ -3,7 +3,7 @@ package com.example.nybooks.ui.books
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nybooks.data.Book
+import com.example.nybooks.data.model.Book
 import com.example.nybooks.databinding.ItemBookBinding
 import com.example.nybooks.ui.books.BooksAdapter.BooksViewHolder
 

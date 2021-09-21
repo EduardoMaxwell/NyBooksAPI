@@ -1,4 +1,4 @@
-package com.example.nybooks.data
+package com.example.nybooks.data.model
 
 data class Book(
     val title: String,

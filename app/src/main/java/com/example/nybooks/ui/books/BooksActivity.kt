@@ -3,11 +3,9 @@ package com.example.nybooks.ui.books
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nybooks.R
-import com.example.nybooks.data.Book
 import com.example.nybooks.databinding.ActivityBooksBinding
 
 class BooksActivity : AppCompatActivity() {

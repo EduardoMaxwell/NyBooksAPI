@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nybooks">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NyBooks">
+        <activity android:name=".ui.details.BookDetailsActivity"></activity>
         <activity android:name=".ui.books.BooksActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
