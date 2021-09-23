@@ -3,6 +3,9 @@
 
     <!--Books Activities-->
     <string name="books_title">New York Books API</string>
+    <string name="books_error_401">Access Denied</string>
+    <string name="books_error_400">Generic Error</string>
+    <string name="books_error_500">Server Error</string>
 
     <!--Book Details Activity-->
     <string name="book_detail_title">Book Detail</string>

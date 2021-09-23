@@ -17,7 +17,7 @@ class BookDetailsActivity : BaseActivity() {
         setContentView(binding.root)
 
         /*Método criado na classe BaseActivity para reaproveitar código da Toolbar*/
-        setupToolbar(binding.toolbarDetails.root, R.string.book_detail_title)
+        setupToolbar(binding.toolbarDetails.root, R.string.book_detail_title, true)
 
         binding.bookDetailsTitle.text = intent.getStringExtra(EXTRA_TITLE)
         binding.bookDetailsDescription.text = intent.getStringExtra(EXTRA_DESCRIPTION)

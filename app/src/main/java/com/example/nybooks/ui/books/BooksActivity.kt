@@ -2,6 +2,7 @@ package com.example.nybooks.ui.books
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nybooks.R
@@ -38,6 +39,17 @@ class BooksActivity : BaseActivity() {
                     }
                 }
             }
+        })
+
+        viewModel.viewFlipperLiveData.observe(this, Observer {
+            it?.let { viewFlipper ->
+                binding.viewFlipperBooks.displayedChild = viewFlipper.first
+
+                viewFlipper.second?.let { errorMessageResId ->
+                    binding.tvError.text = getString(errorMessageResId)
+                }
+            }
+
         })
 
         viewModel.getBooks()
