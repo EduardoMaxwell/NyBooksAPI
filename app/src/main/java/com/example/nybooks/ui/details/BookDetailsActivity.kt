@@ -3,18 +3,21 @@ package com.example.nybooks.ui.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.nybooks.R
 import com.example.nybooks.databinding.ActivityBookDetailsBinding
+import com.example.nybooks.databinding.IncludeToolbarBinding
+import com.example.nybooks.ui.base.BaseActivity
 
-class BookDetailsActivity : AppCompatActivity() {
+class BookDetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityBookDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBookDetailsBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
+        /*Método criado na classe BaseActivity para reaproveitar código da Toolbar*/
+        setupToolbar(binding.toolbarDetails.root, R.string.book_detail_title)
 
         binding.bookDetailsTitle.text = intent.getStringExtra(EXTRA_TITLE)
         binding.bookDetailsDescription.text = intent.getStringExtra(EXTRA_DESCRIPTION)

@@ -2,27 +2,26 @@ package com.example.nybooks.ui.books
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nybooks.R
 import com.example.nybooks.databinding.ActivityBooksBinding
+import com.example.nybooks.ui.base.BaseActivity
 import com.example.nybooks.ui.details.BookDetailsActivity
 
-class BooksActivity : AppCompatActivity() {
+class BooksActivity : BaseActivity() {
     private lateinit var binding: ActivityBooksBinding
-    private val viewlModel: BooksViewModel by viewModels()
+    private val viewModel: BooksViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBooksBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
-        binding.toolbarMain.title = getString(R.string.books_title)
-        setSupportActionBar(binding.toolbarMain)
+        /*Método criado na classe BaseActivity para reaproveitar código da Toolbar*/
+        setupToolbar(binding.toolbarBooks.root, R.string.books_title)
 
-        viewlModel.booksLiveData.observe(this, {
+        viewModel.booksLiveData.observe(this, {
             it?.let { books ->
                 with(binding.recyclerBooks) {
                     layoutManager =
@@ -41,7 +40,7 @@ class BooksActivity : AppCompatActivity() {
             }
         })
 
-        viewlModel.getBooks()
+        viewModel.getBooks()
     }
 
 }
