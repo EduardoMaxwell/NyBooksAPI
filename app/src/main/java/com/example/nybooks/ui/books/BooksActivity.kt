@@ -6,13 +6,18 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nybooks.R
+import com.example.nybooks.data.repository.BooksApiDataSource
 import com.example.nybooks.databinding.ActivityBooksBinding
 import com.example.nybooks.ui.base.BaseActivity
 import com.example.nybooks.ui.details.BookDetailsActivity
 
 class BooksActivity : BaseActivity() {
     private lateinit var binding: ActivityBooksBinding
-    private val viewModel: BooksViewModel by viewModels()
+//    private val viewModel: BooksViewModel by viewModels()
+
+
+    private val viewModel: BooksViewModel = BooksViewModel.ViewModelFactory(BooksApiDataSource())
+        .create(BooksViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +46,7 @@ class BooksActivity : BaseActivity() {
             }
         })
 
-        viewModel.viewFlipperLiveData.observe(this, Observer {
+        viewModel.viewFlipperLiveData.observe(this, {
             it?.let { viewFlipper ->
                 binding.viewFlipperBooks.displayedChild = viewFlipper.first
 
